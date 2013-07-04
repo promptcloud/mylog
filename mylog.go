@@ -2,6 +2,7 @@ package mylog
 
 import "fmt"
 import "time"
+import "os"
 
 const (
     TRACE = iota
@@ -16,7 +17,8 @@ const (
 )
 
 var (
-    stdLog = NewConsoleLogger(INFO)                                                 // default is a console logger
+    default_level = os.Getenv("SDF_LOG_LEVEL")
+    stdLog = NewConsoleLogger(Level_from_string(default_level))             // default is a console logger
     levels = [...]string{"TRACE","DEBUG","INFO","WARN","ERROR","FATAL"}
     timeformat = TIMEFORMAT
 )
@@ -57,6 +59,19 @@ func CurrentLevel()int{
 // Sets the output level for the default logger
 func Level(level int) {
 	stdLog.Level(level)
+}
+
+// Sets the output level for logger from a string
+func Level_from_string(level string)int{
+    switch level{
+        case "TRACE": return TRACE
+        case "DEBUG": return DEBUG 
+        case "INFO" : return INFO
+        case "WARN" : return WARN 
+        case "ERROR": return ERROR
+        case "FATAL": return FATAL
+    }
+    return INFO
 }
 
 // Sets the time format for the default logger

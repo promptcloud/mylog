@@ -82,7 +82,6 @@ func (l *FileLogger) TimeFormat(format string){
 // closes the log file
 func (l *FileLogger) Close() error{
     // find some way to close multiwriter
-    l.out.Close()
     return nil
 }
 
