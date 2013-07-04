@@ -12,9 +12,9 @@ Also, I added a 'multilogger.go' (incase I need the same output at both console 
 # Installation:
 To install type this in your terminal
     
-            go get github.com/n-o-m-a-d/mylog
+            go get github.com/promptcloud/mylog
 
-This should create a repo named '/n-o-m-a-d/mylog' inside "$GOPATH/src/pkg/github.com/".
+This should create a repo named '/promptcloud/mylog' inside "$GOPATH/src/pkg/github.com/".
 
 *Usage*:
 Example:
